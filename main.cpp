@@ -58,9 +58,7 @@ auto main() -> int {
 
   map<string, double> map_{{"pi", 3.14}, {"e", 2.71}, {"c", 300'000}};
 
-  multimap<int, int> multimap_; // empty multimap container
-
-  // insert elements in random order
+  multimap<int, int> multimap_;
   multimap_.insert(pair<int, int>(1, 40));
 
   // Unordered associative containers
