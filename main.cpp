@@ -29,16 +29,18 @@ auto main() -> int {
   // forward_list: Singly-linked list (class template)
   // list : Doubly-linked list (class template)
 
-  array<int, 6> array_ = {1, 2, 3, 4, 5, 6};
-  vector<int> vector_ = {1, 2, 3};
+  array<int, 5> array_ = {1, 2, 3, 4, 5};
+  vector<int> vector_ = {1, 2, 3, 4, 5};
 
   deque<int> deque_;
-  deque_.push_back(10);
+  for (int i = 0; i < 5; ++i) {
+    deque_.push_back(i + 1);
+  }
 
   forward_list<int> forward_list_;
-  forward_list_.assign({1, 2, 3});
+  forward_list_.assign({1, 2, 3, 4, 5});
 
-  list<int> list_ = {1, 2, 3};
+  list<int> list_ = {1, 2, 3, 4, 5};
 
   // Associative containers
   //
@@ -46,20 +48,26 @@ auto main() -> int {
   // searched (O(log n) complexity).
   //
   // Set: Collection of unique keys, sorted by keys
-  // Map: Collection of key-value pairs, sorted by keys, keys are unique (class
-  // template). multiset: Collection of keys, sorted by keys (class template)
+  // Map: Collection of key-value pairs, sorted by keys, keys are unique (class template).
+  // multiset: Collection of keys, sorted by keys (class template)
   // multimap: Collection of key-value pairs, sorted by keys
 
   set<int, greater<>> set_;
-  set_.insert(40);
+  for (int x = 0; x < 5; ++x) {
+    set_.insert(x + 1);
+  }
 
   multiset<int, greater<>> multiset_;
-  multiset_.insert(40);
+  for (int x = 0; x < 5; ++x) {
+    multiset_.insert(x + 1);
+  }
 
   map<string, double> map_{{"pi", 3.14}, {"e", 2.71}, {"c", 300'000}};
 
-  multimap<int, int> multimap_;
-  multimap_.insert(pair<int, int>(1, 40));
+  multimap<string, double> multimap_;
+  multimap_.insert(pair<string, double>("pi", 3.14));
+  multimap_.insert(pair<string, double>("e", 2.71));
+  multimap_.insert(pair<string, double>("c", 300'000));
 
   // Unordered associative containers
   //
@@ -68,43 +76,46 @@ auto main() -> int {
   // complexity).
   //
   // unordered_set: Collection of unique keys, hashed by keys. (class template)
-  // unordered_map: Collection of key-value pairs, hashed by keys, keys are
-  // unique. (class template) unordered_multiset: Collection of keys, hashed by
-  // keys (class template) unordered_multimap: Collection of key-value pairs,
-  // hashed by keys (class template)
+  // unordered_map: Collection of key-value pairs, hashed by keys, keys are unique. (class template)
+  // unordered_multiset: Collection of keys, hashed by keys (class template)
+  // unordered_multimap: Collection of key-value pairs, hashed by keys (class template)
 
   unordered_set<string> unordered_set_;
-  unordered_set_.insert("code");
+  unordered_set_.insert("pi");
+  unordered_set_.insert("e");
+  unordered_set_.insert("c");
 
-  unordered_map<string, int> unordered_map_;
-  unordered_map_["GeeksforGeeks"] = 10;
+  unordered_map<string, double> unordered_map_;
+  unordered_map_["pi"] = 3.14;
+  unordered_map_["e"] = 2.71;
+  unordered_map_["c"] = 300'000;
 
-  unordered_multiset<int> unordered_multiset_({1, 3, 1, 7, 2, 3, 4, 1, 6});
+  unordered_multiset<int> unordered_multiset_({1, 2, 1, 3, 2, 4, 3, 5});
 
-  unordered_multimap<string, int> unordered_multimap_({{"apple", 1},
-                                                       {"ball", 2},
-                                                       {"apple", 10},
-                                                       {"cat", 7},
-                                                       {"dog", 9},
-                                                       {"cat", 6},
-                                                       {"apple", 1}});
+  unordered_multimap<string, double> unordered_multimap_(
+      {{"pi", 3.14}, {"e", 2.71}, {"c", 300'000}});
 
   // Container adaptors
   //
   // Container adaptors provide a different interface for sequential containers.
   //
-  // stack: Adapts a container to provide stack (LIFO data structure) (class
-  // template). queue: Adapts a container to provide queue (FIFO data structure)
-  // (class template). priority_queue: Adapts a container to provide priority
-  // queue (class template).
+  // stack: Adapts a container to provide stack (LIFO data structure) (class template).
+  // queue: Adapts a container to provide queue (FIFO data structure) (class template).
+  // priority_queue: Adapts a container to provide priority queue (class template).
 
   stack<int> stack_;
-  stack_.push(10);
+  for (int x = 0; x < 5; ++x) {
+    stack_.push(x + 1);
+  }
 
   queue<int> queue_;
-  queue_.push(10);
+  for (int x = 0; x < 5; ++x) {
+    queue_.push(x + 1);
+  }
 
   priority_queue<int> priority_queue_;
-  priority_queue_.push(10);
+  for (int x = 0; x < 5; ++x) {
+    priority_queue_.push(x + 1);
+  }
   return 0;
 }

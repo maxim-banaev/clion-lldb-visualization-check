@@ -1,0 +1,27 @@
+Current status:
+
+Build: CLion 2019.2 Snapshot
+       Build #CL-192.4750, built on June 3, 2019
+
+Platform: Windows 10
+Toolchain: Min GW
+Debugger: LLDB 9.0
+
+
+string:        Yes / No inline preview
+array:         Yes / No inline preview
+vector:        No  / No inline preview | Only first element
+deque:         No  / No inline preview | Only first element
+forward list:  No  / No inline preview
+list:          No  / No inline preview | Only size
+set:           No  / No inline preview | Only size
+multiset:      No  / No inline preview | Only size
+map:           No  / No inline preview | Only size
+multimap:      No  / No inline preview | Only size
+unordered set: No  / No inline preview
+unordered map: No  / No inline preview
+unordered multiset: No  / No inline preview
+unordered multimap: No  / No inline preview
+stack:         No  / No inline preview | Only first element
+queue:         No  / No inline preview | Only first element
+priority queue:No  / No inline preview | Only first element
