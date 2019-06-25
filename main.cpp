@@ -12,6 +12,15 @@
 #include <unordered_set>
 #include <vector>
 
+class MyPoint {
+  int x;
+  int y;
+
+public:
+  MyPoint(int x, int y) : x(x), y(y) {}
+};
+
+
 using namespace std;
 
 auto main() -> int {
@@ -117,5 +126,8 @@ auto main() -> int {
   for (int x = 0; x < 5; ++x) {
     priority_queue_.push(x + 1);
   }
+
+  MyPoint p{1,2};
+
   return 0;
 }
