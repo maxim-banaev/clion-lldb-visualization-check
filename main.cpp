@@ -127,7 +127,9 @@ auto main() -> int {
     priority_queue_.push(x + 1);
   }
 
-  MyPoint p{1,2};
+  MyPoint mypoint_{1,2};
+  MyPoint mypoint_zero{0,0};
+  std::vector<MyPoint> vector_of_points = {{1,1}};
 
   return 0;
 }
