@@ -1,7 +1,6 @@
 #include <array>
 #include <deque>
 #include <forward_list>
-#include <iostream>
 #include <list>
 #include <map>
 #include <queue>
@@ -20,13 +19,13 @@ public:
   MyPoint(int x, int y) : x(x), y(y) {}
 };
 
-
 using namespace std;
 
 auto main() -> int {
 
   string string_ = "hello";
-
+  string &string_ref_ = string_;
+  string *string_ptr_ = &string_;
   // Sequence containers
   //
   // Sequence containers implement data structures which can be accessed
@@ -127,9 +126,9 @@ auto main() -> int {
     priority_queue_.push(x + 1);
   }
 
-  MyPoint mypoint_{1,2};
-  MyPoint mypoint_zero{0,0};
-  std::vector<MyPoint> vector_of_points = {{1,1}};
+  MyPoint mypoint_{1, 2};
+  MyPoint mypoint_zero{0, 0};
+  std::vector<MyPoint> vector_of_points = {{1, 1}};
 
   return 0;
 }
