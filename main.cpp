@@ -16,6 +16,19 @@ class MyPoint {
   int y;
 
 public:
+  bool operator<(const MyPoint &rhs) const {
+    if (x < rhs.x)
+      return true;
+    if (rhs.x < x)
+      return false;
+    return y < rhs.y;
+  }
+  bool operator>(const MyPoint &rhs) const { return rhs < *this; }
+  bool operator<=(const MyPoint &rhs) const { return !(rhs < *this); }
+  bool operator>=(const MyPoint &rhs) const { return !(*this < rhs); }
+
+public:
+  MyPoint() : x(0), y(0) {}
   MyPoint(int x, int y) : x(x), y(y) {}
 };
 
@@ -128,7 +141,55 @@ auto main() -> int {
 
   MyPoint mypoint_{1, 2};
   MyPoint mypoint_zero{0, 0};
-  std::vector<MyPoint> vector_of_points = {{1, 1}};
+
+  std::vector<MyPoint> vector_of_points = {mypoint_zero, mypoint_};
+
+  // array<MyPoint, 2> array_of_points = {mypoint_zero, mypoint_};
+  array<MyPoint, 2> array_of_points = {mypoint_zero, mypoint_};
+
+  deque<MyPoint> deque_of_points;
+  deque_of_points.push_back(mypoint_zero);
+  deque_of_points.push_back(mypoint_);
+
+  forward_list<MyPoint> forward_list_of_points;
+  forward_list_of_points.assign({mypoint_zero, mypoint_});
+
+  list<MyPoint> list_of_points = {mypoint_zero, mypoint_};
+
+  set<MyPoint, greater<>> set_of_points;
+  set_of_points.insert(mypoint_zero);
+  set_of_points.insert(mypoint_);
+
+  multiset<MyPoint, greater<>> multiset_of_points;
+  multiset_of_points.insert(mypoint_zero);
+  multiset_of_points.insert(mypoint_);
+
+  map<int, MyPoint> map_of_points{{0, mypoint_zero}, {1, mypoint_}};
+
+  multimap<int, MyPoint> multimap_of_points;
+  multimap_of_points.insert(pair<int, MyPoint>(0, mypoint_zero));
+  multimap_of_points.insert(pair<int, MyPoint>(2, mypoint_));
+
+  // unordered_set<MyPoint> unordered_set_of_points;
+  // unordered_set_of_points.insert(mypoint_);
+
+  unordered_map<int, MyPoint> unordered_map_of_points;
+  unordered_map_of_points[0] = mypoint_;
+
+  // unordered_multiset<MyPoint> unordered_multiset_of_points({mypoint_zero, mypoint_});
+  unordered_multimap<int, MyPoint> unordered_multimap_of_points({{0, mypoint_zero}, {1, mypoint_}});
+
+  stack<MyPoint> stack_of_points;
+  stack_of_points.push(mypoint_zero);
+  stack_of_points.push(mypoint_);
+
+  queue<MyPoint> queue_of_points;
+  queue_of_points.push(mypoint_zero);
+  queue_of_points.push(mypoint_);
+
+  priority_queue<MyPoint> priority_queue_of_points;
+  priority_queue_of_points.push(mypoint_zero);
+  priority_queue_of_points.push(mypoint_);
 
   return 0;
 }
