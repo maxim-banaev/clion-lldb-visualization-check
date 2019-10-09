@@ -23,12 +23,16 @@ public:
       return false;
     return y < rhs.y;
   }
+
   bool operator>(const MyPoint &rhs) const { return rhs < *this; }
+
   bool operator<=(const MyPoint &rhs) const { return !(rhs < *this); }
+
   bool operator>=(const MyPoint &rhs) const { return !(*this < rhs); }
 
 public:
   MyPoint() : x(0), y(0) {}
+
   MyPoint(int x, int y) : x(x), y(y) {}
 };
 
@@ -51,12 +55,21 @@ auto main() -> int {
   // list : Doubly-linked list (class template)
 
   array<int, 5> array_ = {1, 2, 3, 4, 5};
-  vector<int> vector_ = {1, 2, 3, 4, 5};
+  vector<int> vector_;
+
+  vector_.reserve(5);
+  for (int j = 0; j < 7; ++j) {
+    vector_.push_back(j);
+  }
+  vector_.pop_back();
+  vector_.pop_back();
 
   deque<int> deque_;
-  for (int i = 0; i < 5; ++i) {
+  for (int i = 0; i < 7; ++i) {
     deque_.push_back(i + 1);
   }
+  deque_.pop_back();
+  deque_.pop_front();
 
   forward_list<int> forward_list_;
   forward_list_.assign({1, 2, 3, 4, 5});
@@ -125,19 +138,25 @@ auto main() -> int {
   // priority_queue: Adapts a container to provide priority queue (class template).
 
   stack<int> stack_;
-  for (int x = 0; x < 5; ++x) {
+  for (int x = 0; x < 7; ++x) {
     stack_.push(x + 1);
   }
+  stack_.pop();
+  stack_.pop();
 
   queue<int> queue_;
-  for (int x = 0; x < 5; ++x) {
+  for (int x = 0; x < 7; ++x) {
     queue_.push(x + 1);
   }
+  queue_.pop();
+  queue_.pop();
 
   priority_queue<int> priority_queue_;
-  for (int x = 0; x < 5; ++x) {
+  for (int x = 0; x < 7; ++x) {
     priority_queue_.push(x + 1);
   }
+  priority_queue_.pop();
+  priority_queue_.pop();
 
   MyPoint mypoint_{1, 2};
   MyPoint mypoint_zero{0, 0};
