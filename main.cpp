@@ -40,6 +40,15 @@ using namespace std;
 
 auto main() -> int {
 
+  // Basics
+  int int_ = 12;
+  double double_ = 12.3;
+  float float_ = 12.3;
+  char char_ = 'c';
+  bool bool_ = true;
+  void* void_ = nullptr;
+  int int_a[12] = {1,2};
+
   string string_ = "hello";
   string &string_ref_ = string_;
   string *string_ptr_ = &string_;
