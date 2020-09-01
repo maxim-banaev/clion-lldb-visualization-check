@@ -1,6 +1,7 @@
 #include <array>
 #include <deque>
 #include <forward_list>
+#include <iostream>
 #include <list>
 #include <map>
 #include <memory>
@@ -15,10 +16,7 @@
 
 using namespace std;
 
-enum class Number {
-  One,
-  Two
-};
+enum class Number { One, Two };
 
 class MyPoint {
   int x;
@@ -259,6 +257,19 @@ int check_custom_types() {
   return 0;
 }
 
+int check_iterator() {
+  std::list<int> ml = {100, 200};
+
+
+  for (auto it = ml.begin(); it != ml.end(); it++) {
+    std::cout << *it << std::endl;
+  }
+  for (auto rit = ml.rbegin(); rit != ml.rend(); rit++) {
+    std::cout << *rit << std::endl;
+  }
+  return 0;
+}
+
 auto main() -> int {
 
 #pragma region Basics types
@@ -285,6 +296,7 @@ auto main() -> int {
   check_associative_containers();
   check_unordered_associative_containers();
   check_container_adaptors();
+  check_iterator();
 #pragma endregion
 
 #pragma region Custom type
