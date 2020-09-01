@@ -10,6 +10,7 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include <tuple>
 
 class MyPoint {
   int x;
@@ -57,6 +58,9 @@ auto main() -> int {
 #pragma endregion
 
 #pragma region Smart Pointers
+  auto ptr_shared_ = std::make_shared<MyPoint>(1,3);
+  auto ptr_unique_ = std::make_unique<MyPoint>(1,3);
+
 #pragma endregion
 
 #pragma region STL Containers
@@ -180,6 +184,13 @@ auto main() -> int {
   priority_queue_.pop();
   priority_queue_.pop();
 
+  // others
+
+  // tuple
+  auto tuple_ = std::make_tuple(1, 'c');
+
+  // pair
+  auto pair_ = std::make_pair(5,6);
 #pragma endregion
 
 #pragma region Custom type
