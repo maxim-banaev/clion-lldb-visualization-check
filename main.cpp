@@ -3,47 +3,19 @@
 #include <forward_list>
 #include <list>
 #include <map>
+#include <memory>
 #include <queue>
 #include <set>
 #include <stack>
 #include <string>
+#include <tuple>
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
-#include <tuple>
-#include <memory>
-
-
-class MyPoint {
-  int x;
-  int y;
-
-public:
-  bool operator<(const MyPoint &rhs) const {
-    if (x < rhs.x)
-      return true;
-    if (rhs.x < x)
-      return false;
-    return y < rhs.y;
-  }
-
-  bool operator>(const MyPoint &rhs) const { return rhs < *this; }
-
-  bool operator<=(const MyPoint &rhs) const { return !(rhs < *this); }
-
-  bool operator>=(const MyPoint &rhs) const { return !(*this < rhs); }
-
-public:
-  MyPoint() : x(0), y(0) {}
-
-  MyPoint(int x, int y) : x(x), y(y) {}
-};
 
 using namespace std;
 
-auto main() -> int {
-
-#pragma region Basics types
+int check_basic_types() {
   int int_ = 12;
   double double_ = 12.3;
   float float_ = 12.3;
@@ -57,19 +29,18 @@ auto main() -> int {
   auto auto_char_ = 'c';
   auto auto_bool_ = true;
   auto auto_ptr_ = nullptr;
-#pragma endregion
 
-#pragma region Smart Pointers
-  auto ptr_shared_ = std::make_shared<MyPoint>(1,3);
-  auto ptr_unique_ = std::make_unique<MyPoint>(1,3);
+  return 0;
+}
 
-#pragma endregion
+int check_smart_pointers() {
+  auto ptr_shared_ = std::make_shared<MyPoint>(1, 3);
+  auto ptr_unique_ = std::make_unique<MyPoint>(1, 3);
 
-#pragma region STL Containers
-  string string_ = "hello";
-  string &string_ref_ = string_;
-  string *string_ptr_ = &string_;
+  return 0;
+}
 
+int check_sequence_containers() {
   // Sequence containers
   //
   // Sequence containers implement data structures which can be accessed
@@ -104,6 +75,10 @@ auto main() -> int {
   list<int> list_ = {1, 2, 3, 4, 5};
 
   auto initializer_list_ = {1, 2, 3, 4, 5};
+  return 0;
+}
+
+int check_associative_containers() {
   // Associative containers
   //
   // Associative containers implement sorted data structures that can be quickly
@@ -131,6 +106,10 @@ auto main() -> int {
   multimap_.insert(pair<string, double>("e", 2.71));
   multimap_.insert(pair<string, double>("c", 300'000));
 
+  return 0;
+}
+
+int check_unordered_associative_containers() {
   // Unordered associative containers
   //
   // Unordered associative containers implement unsorted (hashed) data
@@ -156,7 +135,10 @@ auto main() -> int {
 
   unordered_multimap<string, double> unordered_multimap_(
       {{"pi", 3.14}, {"e", 2.71}, {"c", 300'000}});
+  return 0;
+}
 
+int check_container_adaptors() {
   // Container adaptors
   //
   // Container adaptors provide a different interface for sequential containers.
@@ -185,17 +167,35 @@ auto main() -> int {
   }
   priority_queue_.pop();
   priority_queue_.pop();
+  return 0;
+}
 
-  // others
+int check_custom_types() {
+  class MyPoint {
+    int x;
+    int y;
 
-  // tuple
-  auto tuple_ = std::make_tuple(1, 'c');
+  public:
+    bool operator<(const MyPoint &rhs) const {
+      if (x < rhs.x)
+        return true;
+      if (rhs.x < x)
+        return false;
+      return y < rhs.y;
+    }
 
-  // pair
-  auto pair_ = std::make_pair(5,6);
-#pragma endregion
+    bool operator>(const MyPoint &rhs) const { return rhs < *this; }
 
-#pragma region Custom type
+    bool operator<=(const MyPoint &rhs) const { return !(rhs < *this); }
+
+    bool operator>=(const MyPoint &rhs) const { return !(*this < rhs); }
+
+  public:
+    MyPoint() : x(0), y(0) {}
+
+    MyPoint(int x, int y) : x(x), y(y) {}
+  };
+
   MyPoint mypoint_{1, 2};
   MyPoint mypoint_zero{0, 0};
 
@@ -247,6 +247,40 @@ auto main() -> int {
   priority_queue<MyPoint> priority_queue_of_points;
   priority_queue_of_points.push(mypoint_zero);
   priority_queue_of_points.push(mypoint_);
+
+  return 0;
+}
+
+auto main() -> int {
+
+#pragma region Basics types
+  check_basic_types();
+#pragma endregion
+
+#pragma region Smart Pointers
+  check_smart_pointers();
+#pragma endregion
+
+#pragma region STL Containers
+  // string
+  string string_ = "hello";
+  string &string_ref_ = string_;
+  string *string_ptr_ = &string_;
+
+  // tuple
+  auto tuple_ = std::make_tuple(1, 'c');
+
+  // pair
+  auto pair_ = std::make_pair(5, 6);
+
+  check_sequence_containers();
+  check_associative_containers();
+  check_unordered_associative_containers();
+  check_container_adaptors();
+#pragma endregion
+
+#pragma region Custom type
+  check_custom_types();
 #pragma endregion
 
   return 0;
