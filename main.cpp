@@ -40,18 +40,30 @@ using namespace std;
 
 auto main() -> int {
 
-  // Basics
+#pragma region Basics types
   int int_ = 12;
   double double_ = 12.3;
   float float_ = 12.3;
   char char_ = 'c';
   bool bool_ = true;
-  void* void_ = nullptr;
-  int int_a[12] = {1,2};
+  void *void_ = nullptr;
+  int int_a[12] = {1, 2};
 
+  auto auto_int_ = 1;
+  auto auto_double_ = 12.3;
+  auto auto_char_ = 'c';
+  auto auto_bool_ = true;
+  auto auto_ptr_ = nullptr;
+#pragma endregion
+
+#pragma region Smart Pointers
+#pragma endregion
+
+#pragma region STL Containers
   string string_ = "hello";
   string &string_ref_ = string_;
   string *string_ptr_ = &string_;
+
   // Sequence containers
   //
   // Sequence containers implement data structures which can be accessed
@@ -85,6 +97,7 @@ auto main() -> int {
 
   list<int> list_ = {1, 2, 3, 4, 5};
 
+  auto initializer_list_ = {1, 2, 3, 4, 5};
   // Associative containers
   //
   // Associative containers implement sorted data structures that can be quickly
@@ -167,6 +180,9 @@ auto main() -> int {
   priority_queue_.pop();
   priority_queue_.pop();
 
+#pragma endregion
+
+#pragma region Custom type
   MyPoint mypoint_{1, 2};
   MyPoint mypoint_zero{0, 0};
 
@@ -218,6 +234,7 @@ auto main() -> int {
   priority_queue<MyPoint> priority_queue_of_points;
   priority_queue_of_points.push(mypoint_zero);
   priority_queue_of_points.push(mypoint_);
+#pragma endregion
 
   return 0;
 }
