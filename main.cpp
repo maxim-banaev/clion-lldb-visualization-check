@@ -15,6 +15,36 @@
 
 using namespace std;
 
+enum class Number {
+  One,
+  Two
+};
+
+class MyPoint {
+  int x;
+  int y;
+
+public:
+  bool operator<(const MyPoint &rhs) const {
+    if (x < rhs.x)
+      return true;
+    if (rhs.x < x)
+      return false;
+    return y < rhs.y;
+  }
+
+  bool operator>(const MyPoint &rhs) const { return rhs < *this; }
+
+  bool operator<=(const MyPoint &rhs) const { return !(rhs < *this); }
+
+  bool operator>=(const MyPoint &rhs) const { return !(*this < rhs); }
+
+public:
+  MyPoint() : x(0), y(0) {}
+
+  MyPoint(int x, int y) : x(x), y(y) {}
+};
+
 int check_basic_types() {
   int int_ = 12;
   double double_ = 12.3;
@@ -171,30 +201,8 @@ int check_container_adaptors() {
 }
 
 int check_custom_types() {
-  class MyPoint {
-    int x;
-    int y;
 
-  public:
-    bool operator<(const MyPoint &rhs) const {
-      if (x < rhs.x)
-        return true;
-      if (rhs.x < x)
-        return false;
-      return y < rhs.y;
-    }
-
-    bool operator>(const MyPoint &rhs) const { return rhs < *this; }
-
-    bool operator<=(const MyPoint &rhs) const { return !(rhs < *this); }
-
-    bool operator>=(const MyPoint &rhs) const { return !(*this < rhs); }
-
-  public:
-    MyPoint() : x(0), y(0) {}
-
-    MyPoint(int x, int y) : x(x), y(y) {}
-  };
+  Number mynumber = Number::One;
 
   MyPoint mypoint_{1, 2};
   MyPoint mypoint_zero{0, 0};
