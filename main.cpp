@@ -11,6 +11,8 @@
 #include <unordered_set>
 #include <vector>
 #include <tuple>
+#include <memory>
+
 
 class MyPoint {
   int x;
