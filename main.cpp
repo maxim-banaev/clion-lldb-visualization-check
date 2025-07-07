@@ -1,3 +1,6 @@
+// ReSharper disable CppDFAUnreadVariable
+// ReSharper disable CppDeclaratorNeverUsed
+// ReSharper disable CppDFAUnusedValue
 #include <filesystem>
 
 #include "MyPoint.h"
@@ -19,9 +22,12 @@ auto main() -> int {
 
 #pragma region STL Containers
   // string
-  string string_ = "hello";
+  string string_ = "hello string";
   string &string_ref_ = string_;
   string *string_ptr_ = &string_;
+
+  // string view
+  constexpr std::string_view string_view_ = "hello string view";
 
   // tuple
   auto tuple_ = std::make_tuple(1, 'c');

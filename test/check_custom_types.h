@@ -1,3 +1,7 @@
+// ReSharper disable CppDFAUnreadVariable
+// ReSharper disable CppDeclaratorNeverUsed
+// ReSharper disable CppDFAUnusedValue
+// ReSharper disable CppTemplateArgumentsCanBeDeduced
 #pragma once
 
 #include <array>
@@ -9,7 +13,7 @@ using namespace std;
 
 enum class Number { One, Two };
 
-int check_custom_types() {
+inline int check_custom_types() {
 
   Number mynumber = Number::One;
 
@@ -18,7 +22,6 @@ int check_custom_types() {
 
   std::vector<MyPoint> vector_of_points = {mypoint_zero, mypoint_};
 
-  // array<MyPoint, 2> array_of_points = {mypoint_zero, mypoint_};
   array<MyPoint, 2> array_of_points = {mypoint_zero, mypoint_};
 
   deque<MyPoint> deque_of_points;

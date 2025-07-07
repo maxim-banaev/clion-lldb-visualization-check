@@ -1,27 +1,34 @@
 Current status:
 
-Build: CLion 2019.2 Snapshot
-       Build #CL-192.4750, built on June 3, 2019
+Build: CLion 2025.3 Nightly
+       Build #CL-253.3711, built on July 6, 2025
 
-Platform: Windows 10
-Toolchain: Min GW
-Debugger: LLDB 9.0
+Platform: Ubuntu 24.04
+Toolchain: Clang 18.1.3
+Debugger: LLDB 19.1.7
 
 
-string:        Yes / No inline preview
-array:         Yes / No inline preview
-vector:        No  / No inline preview | Only first element
-deque:         No  / No inline preview | Only first element
-forward list:  No  / No inline preview
-list:          No  / No inline preview | Only size
-set:           No  / No inline preview | Only size
-multiset:      No  / No inline preview | Only size
-map:           No  / No inline preview | Only size
-multimap:      No  / No inline preview | Only size
-unordered set: No  / No inline preview
-unordered map: No  / No inline preview
-unordered multiset: No  / No inline preview
-unordered multimap: No  / No inline preview
-stack:         No  / No inline preview | Only first element
-queue:         No  / No inline preview | Only first element
-priority queue:No  / No inline preview | Only first element
+STL Type              | Pretty-printers | Inline preview    | Additional comment
+----------------------------------------------------------------------------------
+string                | Yes             | Yes               |
+string view           | Yes             | No                |
+array                 | Yes             | Yes               |
+vector                | Yes             | Yes               | Only size
+deque                 | Yes             | Yes               | Only size
+forward list          | Yes             | Yes               | Only size
+list                  | Yes             | Yes               | Only size
+set                   | Yes             | Yes               | Only size
+multiset              | Yes             | Yes               | Only size
+map                   | Yes             | Yes               | Only size
+multimap              | Yes             | Yes               | Only size
+unordered set         | Yes             | Yes               | Only size
+unordered map         | Yes             | Yes               | Only size
+unordered multiset    | Yes             | Yes               | Only size
+unordered multimap    | Yes             | Yes               | Only size
+stack                 | Yes             | Yes               |
+queue                 | Yes             | Yes               |
+priority queue        | Yes             | Yes               |
+tuple                 | Yes             | Yes               |
+pair                  | Yes             | No                |
+shared_prt            | Yes             | No                |
+unique_prt            | Yes             | No                |

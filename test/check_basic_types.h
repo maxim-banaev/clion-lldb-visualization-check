@@ -1,6 +1,10 @@
+// ReSharper disable CppDFAUnreadVariable
+// ReSharper disable CppDFAUnusedValue
+// ReSharper disable CppDeclaratorNeverUsed
+
 #pragma once
 
-int check_basic_types() {
+inline int check_basic_types() {
   int int_ = 12;
   double double_ = 12.3;
   float float_ = 12.3;

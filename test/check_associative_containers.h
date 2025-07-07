@@ -16,7 +16,7 @@
 
 using namespace std;
 
-int check_associative_containers() {
+inline int check_associative_containers() {
   set<int, greater<>> set_;
   for (int x = 0; x < 5; ++x) {
     set_.insert(x + 1);

@@ -1,3 +1,8 @@
+// ReSharper disable CppDFAUnreadVariable
+// ReSharper disable CppDeclaratorNeverUsed
+// ReSharper disable CppTemplateArgumentsCanBeDeduced
+// ReSharper disable CppDFAUnusedValue
+
 #pragma once
 
 #include <array>
@@ -19,7 +24,7 @@
 
 using namespace std;
 
-int check_sequence_containers() {
+inline int check_sequence_containers() {
 
   array<int, 5> array_ = {1, 2, 3, 4, 5};
   vector<int> vector_;

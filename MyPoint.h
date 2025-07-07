@@ -1,9 +1,4 @@
-//
-// Created by jetbrains on 28.12.2020.
-//
-
-#ifndef LLDBVISUALIZATION_MYPOINT_H
-#define LLDBVISUALIZATION_MYPOINT_H
+#pragma once
 
 class MyPoint {
   int x;
@@ -18,9 +13,6 @@ public:
 
   bool operator>=(const MyPoint &rhs) const { return !(*this < rhs); }
 
-public:
   MyPoint();
   MyPoint(int x, int y);
 };
-
-#endif // LLDBVISUALIZATION_MYPOINT_H

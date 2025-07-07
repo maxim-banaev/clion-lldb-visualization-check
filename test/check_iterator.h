@@ -2,18 +2,19 @@
 
 #include <list>
 #include <iostream>
+#include <ranges>
 
 using namespace std;
 
-int check_iterator() {
-  std::list<int> ml = {100, 200};
+inline int check_iterator() {
+  std::list ml = {100, 200};
 
 
-  for (auto it = ml.begin(); it != ml.end(); it++) {
-    std::cout << *it << std::endl;
+  for (const int & it : ml) {
+    std::cout << it << std::endl;
   }
-  for (auto rit = ml.rbegin(); rit != ml.rend(); rit++) {
-    std::cout << *rit << std::endl;
+  for (const int & rit : std::ranges::reverse_view(ml)) {
+    std::cout << rit << std::endl;
   }
   return 0;
 }

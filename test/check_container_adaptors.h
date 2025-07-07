@@ -13,7 +13,7 @@
 
 using namespace std;
 
-int check_container_adaptors() {
+inline int check_container_adaptors() {
 
   stack<int> stack_;
   for (int x = 0; x < 7; ++x) {

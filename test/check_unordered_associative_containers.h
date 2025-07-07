@@ -16,7 +16,7 @@
 
 using namespace std;
 
-int check_unordered_associative_containers() {
+inline int check_unordered_associative_containers() {
   unordered_set<string> unordered_set_;
   unordered_set_.insert("pi");
   unordered_set_.insert("e");
