@@ -13,12 +13,18 @@ using namespace std;
 
 enum class Number { One, Two };
 
+
+typedef MyPoint Point2d;
+
 inline int check_custom_types() {
 
   Number mynumber = Number::One;
 
   MyPoint mypoint_{1, 2};
   MyPoint mypoint_zero{0, 0};
+
+  Point2d p{1, 2};
+  Point2d& ref = p;
 
   std::vector<MyPoint> vector_of_points = {mypoint_zero, mypoint_};
 
