@@ -49,5 +49,13 @@ inline int check_sequence_containers() {
   list<int> list_ = {1, 2, 3, 4, 5};
 
   auto initializer_list_ = {1, 2, 3, 4, 5};
+
+  array<int, 5>* parray_ = &array_;
+  deque<int>* pdeque_ = &deque_;
+  forward_list<int>* pforward_list_ = &forward_list_;
+  list<int>* plist_ = &list_;
+  vector<int>* pvector_ = &vector_;
+  auto* pinitializer_list_ = &initializer_list_;
+
   return 0;
 }
